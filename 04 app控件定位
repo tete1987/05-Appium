@@ -69,6 +69,6 @@
 3.http://www.freeformatter.com/xpath-tester.html#ad-output格式化xml
 （四）uiautomatorviewer定位工具使用
 1.uiautomatorviewer工具（only android）（推荐使用，sdk路径下的工具）
-windows环境的话找到appium
+windows环境的话找到windows环境的话找到C:\Users\Administrator\AppData\Local\Android\android-sdk\tools路径下，直接点击 uiautomatorviewer.bat 进行启动
 
 2.Appium inspector 工具
