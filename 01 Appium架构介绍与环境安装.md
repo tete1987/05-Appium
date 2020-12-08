@@ -35,15 +35,15 @@
 
 |工具名称| 被测系统| 测试| 脚本语言| 支持H5| 跨应用| 稳定性| SDK自动|
 |----|----|----|----|----|----|----|----|----|----|
-MonkeyRunner|Android | 功能| python| 支持| 否| 稳定| 是|
-Instrumentation| Android(<4.1)| 功能| Java| 支持| 可以 | 稳定 |否|
-Uiautomator2| Android(>=4.1)| 功能| Java| 支持| 可以 |稳定| 是|
-Adb-For-Test| Android(>=4.1)| 功能| Java/python|  支持| 可以|  稳定| 否|
-Monkey| Android| 稳定| Java| 否| 否| 稳定 |是|
-CTS| Android |兼容 |Java| 支持|  可以 |稳定 |否|
-Uiautomation| ios| 功能| js| 支持|  可以| 稳定| xcode自带|
-Calabash| Android ios| 功能| Ruby| 支持 | 可以| 一般| 否|
-Appium |Android ios| 功能| Java/python/js/c/c#/perl| 支持 | 可以|一般| 否|
+|MonkeyRunner|Android | 功能| python| 支持| 否| 稳定| 是|
+|Instrumentation| Android(<4.1)| 功能| Java| 支持| 可以 | 稳定 |否|
+|Uiautomator2| Android(>=4.1)| 功能| Java| 支持| 可以 |稳定| 是|
+|Adb-For-Test| Android(>=4.1)| 功能| Java/python|  支持| 可以|  稳定| 否|
+|Monkey| Android| 稳定| Java| 否| 否| 稳定 |是|
+|CTS| Android |兼容 |Java| 支持|  可以 |稳定 |否|
+|Uiautomation| ios| 功能| js| 支持|  可以| 稳定| xcode自带|
+|Calabash| Android ios| 功能| Ruby| 支持 | 可以| 一般| 否|
+|Appium |Android ios| 功能| Java/python/js/c/c#/perl| 支持 | 可以|一般| 否|
 ## （二）Appium介绍
 &ensp; appium是一个移动端的自动化测试框架，可用于测试原生应用，移动网页应用和混合应用，且是跨平台的。可用于ios和Android操作系统。原生应用是指用Android或ios编写的应用，移动网页是指网页应用，类似于ios中safari应用或者chrome应用或者类似浏览器的应用。混合应用是指一种包裹webview的应用，原生应用网页内容交互性的应用。
 
