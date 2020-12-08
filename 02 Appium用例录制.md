@@ -59,7 +59,6 @@ adb shell am start -W -n com.xueqiu.android/.common.MainActivity（重点）
 ## （三）利用appium desktop生成用例模板
 
 1.利用desktop生成用例模板
-![image](E5361382FAE74B50B4A55F79C03B68F7)
 
 示例：
 ```
