@@ -23,7 +23,7 @@ Toast，简易的消息提示框
 - //*[@class='android.widgt.Toast']
 - //*[contains(@text,'XXXXX')]
 
-https://github.com/tete1987/picture_resource/blob/master/toast%E5%86%85%E5%AE%B9.png
+![toast内容](https://github.com/tete1987/picture_resource/blob/master/toast%E5%86%85%E5%AE%B9.png)
 
 示例：
 
