@@ -23,7 +23,7 @@ Toast，简易的消息提示框
 - //*[@class='android.widgt.Toast']
 - //*[contains(@text,'XXXXX')]
 
-![image](99BE79D50EFB4CA8A1C7FDEF4586D82C)
+
 示例：
 
 先使用 adb shell dumpsys window | grep mCurrent 查看当前启动的包和页面名称。如果Windows上不能直接使用grep，可下载Grep for Windows 插件，并配置环境变量：C:\Program Files (x86)\GnuWin32\bin 
