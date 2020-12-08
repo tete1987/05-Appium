@@ -354,3 +354,263 @@ until(expected_conditions.visibility_of_element_located(MobileBy.ID,"com.android
 
 4）在客户端等待
 
+## 四、app控件定位
+### （一）android/ios 基础知识
+1.Android是通过容器的布局属性来管理子控件的位置关系，布局过程就把界面上的所有控件根据他们的间距大小，摆放在正确的位置上。
+
+2.Andriod 七大布局
+
+&ensp; 1）LinearLayout （线性布局）
+
+&ensp; 2）RelativeLayout（相对布局）
+
+&ensp; 3）FrameLayout（帧布局）
+
+&ensp; 4）AbsoluteLayout（绝对布局）
+
+&ensp; 5）TableLayout（表格布局）
+
+&ensp; 6）GridLayout（网格布局）
+
+&ensp; 7）ConstraintLayout（约束布局）
+
+3.android四大组件
+
+&ensp; 1）anctivity 与用户交互的可视化界面
+
+&ensp; 2）service 实现程序后台运行的解决方案
+
+&ensp; 3）content provider 内容提供者，提供程序所需要的数据
+
+&ensp; 4）broadcast receiver 广播接收器，监听外部事件的到来（比如来电）
+
+4.常用的控件：
+
+&ensp; 1）TextView （文本控件）
+
+&ensp; 2）Button（按钮），ImageButton（图片按钮），ToggleButton（开关按钮）
+
+&ensp; 3）ImageView（图片控件）
+
+&ensp; 4）CheckBox（复选框控件），RadioButton（单选框控件）
+
+5.布局是一种可用于放置很多控件的容器，它可以按照一定的规律调整内部控件的位置，从而编写出精美的界面。当然，布局的内部出了放置控件外，也可以放置布局，通过多层布局的嵌套，我们就能够完成一些比较复杂的界面。
+
+6.IOS的基础知识
+
+1）ios介绍
+
+&ensp; ①由苹果公司为iPhone开发的操作系统，主要给iPhone，iTouch，ipad使用
+
+&ensp; ②原名为iPhoneOS，2010年WWDC大会改名为ios
+
+&ensp; ③目前ios最新版本是ios13
+
+2）布局：ios去掉了布局的概念，直接用变量之间的相对关系完成位置的计算
+
+3）开发环境
+
+&ensp; ①系统：MacOS X
+
+&ensp; ②开发工具：Xcode
+
+&ensp; ③开发语言：ObjectC
+
+&ensp; ④安装文件：.ipa文件/.app文件
+
+4）注意：使用Appium测试ios应用需要使用macOS操作系统
+
+7.元素定位
+
+1）元素定位，实际上就是定位控件
+
+2）要想一个脚本同时支持android/ios两个系统，就得保证元素属性（id，aid，xpath等）一致
+
+### （二）dom结构解读
+1.dom：Document Object Model 文档对象模型
+
+1）dom应用：最早应用于html和js 的交互。用于表示界面的控件层级，界面的结构化描述，常见的格式为html、xml。核心元素为节点和属性。
+
+2）xpath：xml路径语言，用于xml中的节点定位
+
+3）Android应用的层级结构与html不一样，是一个定制的xml
+
+4）app source 类似于dom，表示app的层级，代表了界面里面所有的控件树的结构。
+
+5）每个控件都有它的属性（resourceid，xpath，aid），没有css属性
+
+6）node
+
+7）attribute：
+
+&ensp; ① clickable
+
+&ensp; ② content-desc
+
+&ensp; ③ resource-id
+
+&ensp; ④ text
+
+&ensp; ⑤ bounds
+
+8）ios与Android 的区别
+
+&ensp; ① dom属性和节点结构类型
+
+&ensp; ② 名字和属性的命名不同（比如：android resourceid，ios name，android content-desc,ios accessibility-id）
+
+### （三）id、aid、xpath定位方法
+
+1.测试步骤三要素：定位、交互、断言
+
+2.定位方法：
+
+1）id定位：
+
+&ensp; ① driver.find_element_by_id(resource-id属性值)
+
+&ensp; ② driver.find_element(MobileBy.ID,"resource-id")
+
+2）accessibility_id定位
+
+&ensp; ① driver.find_element_by_accessibility_id(content-desc属性值)
+
+&ensp; ② driver.find_element(MobileBy.ACCESSIBILITY_ID,"content-desc:属性")
+
+3）xpath定位
+
+&ensp; ① driver.find_element_by_xpath(xpath属性值)
+
+4）classname定位（不推荐）
+
+3.http://www.freeformatter.com/xpath-tester.html#ad-output格式化xml
+
+### （四）uiautomatorviewer定位工具使用
+
+1.uiautomatorviewer工具（only android）（推荐使用，sdk路径下的工具）
+
+windows环境的话找到C:\Users\Administrator\AppData\Local\Android\android-sdk\tools路径下，直接点击 uiautomatorviewer.bat 进行启动
+
+
+2.Appium inspector 工具
+
+## 五、app控件交互
+### （一）元素的常用方法
+1.常用方法：
+
+1）点击方法：element.click()
+
+2）输入操作：element.send_keys("appium")
+
+3）设置元素的值：element.set_value("appium")
+
+4）清除操作：element.clear()
+
+5）是否可见：element.is_displayed()  返回True/False
+
+6）是否可用：element.is_enable() 返回True/False
+
+7）是否被选中：element.is_selected() 返回True/False
+
+8）获取属性值：get_attribulte(name)
+
+ - get_atrribute()方法能获取的属性，元素的属性几乎都能获取到，属性名和uiautomatorviewer里面的一致。
+ - 源码地址：https://github.com/appium/appium-uiautomator2-server/blob/master/app/src/main/java/io/appium/uiautomator2/handler/GetElementAttribute.java
+ - {text,name} ：text(返回 text)
+ - {class,className} ：（返回class，只有API=> 18 才能支持）
+ - {resource-id,resourceId}：（返回resource-id，只有API=> 18 才能支持）
+ - {content-desc,contendDescription}：（返回contend-desc 属性）
+ - checkable,checked,clickable,enabled,focusable,focused,{long-clickable,longClickable},package,password,scrollable,selection-start,selection-end,selectde,bounds,displayed,contentSize：  返回True/False
+ 
+### （二）元素的常用属性
+
+1.获取元素文本：
+- 格式：element.text
+
+2.获取元素坐标：
+- 格式：element.location
+- 结果：{'y':19,'x':498}
+
+3.获取元素尺寸（高和宽）
+- 格式：element.size
+- 结果：{'width':500,'height':498}
+
+4.案例：
+
+1）打开【雪球】应用
+
+2）定位首页的搜索框
+
+3）判断搜索框的是否可用，并查看搜索框name属性值
+
+4）打印搜索框这个元素的左上角坐标和它的宽高
+
+5）向搜索框输入：alibaba
+
+6）判断【阿里巴巴】是否可见
+
+7）如果可见，打印“搜索成功”点击，如果不可见，打印“搜索失败”
+
+
+示例：
+```
+import pytest
+from appium import webdriver
+class TestAppSearch:
+    def setup(self):
+        caps = {}
+        caps["platformName"] = "android"
+        caps["deviceName"] = "127.0.0.1:62001"
+        caps["appPackage"] ="com.xueqiu.android"
+        caps["appActivity"] ="com.xueqiu.android.common.MainActivity"
+        caps["noReset"] ="true"
+        caps["skipDeviceInitialization"] ="true"
+        caps["unicodeKeyBoard"] ="true"
+        caps["resetKeyBoard"] ="true"
+
+        # caps["dontStopAppOnReset"] ="true"
+        self.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
+        self.driver.implicitly_wait(10)
+
+    def teardown(self):
+        self.driver.back()
+        self.driver.back()
+        self.driver.quit()
+
+    def  test_attr(self):
+       '''
+        1）打开【雪球】应用
+        2）定位首页的搜索框
+        3）判断搜索框的是否可用，并查看搜索框name属性值
+        4）打印搜索框这个元素的左上角坐标和它的宽高
+        5）向搜索框输入：alibaba
+        6）判断【阿里巴巴】是否可见
+        7）如果可见，打印“搜索成功”点击，如果不可见，打印“搜索失败”
+       :param self:
+       :return:
+       '''
+       element_search=self.driver.find_element_by_id("com.xueqiu.android:id/tv_banner")
+       search_enable = element_search.is_enabled()
+       print(element_search.text)
+       print(element_search.location)
+       print(element_search.size)
+       if search_enable == True:
+           element_search.click()
+           self.driver.find_element_by_id("com.xueqiu.android:id/search_input_text").send_keys("阿里巴巴")
+           alibaba_element = self.driver.find_element_by_xpath(
+               "//*[@resource-id='com.xueqiu.android:id/name' and @text='阿里巴巴']")
+
+           element_disaply= alibaba_element.get_attribute("displayed")
+           #get_attribute 返回值是 字符串‘true’
+           if element_disaply == 'true':
+               print("搜索成功")
+           else:
+               print("搜索失败")
+
+
+if __name__ == '__main__':
+        pytest.main()
+
+```
+
+
